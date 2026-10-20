@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="images/favicon.svg">
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<title>Heaven Reign Transformation Ministry</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Heaven Reign Transformation Ministry Inc., Tulsa, Oklahoma. Faith Clinic, Healing Hours and Empowerment Hours every week, with outreach to communities abroad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: cathedral rhythm. Full-bleed oxblood "nave" bands alternate with porcelain "aisles";
+   a champagne-gold hairline frames each section like gilded molding. */
+:root{
+  --porcelain:#fbf9f6; --surface:#ffffff; --ink:#1f1416; --muted:#6d5d60; --line:#e6ddd6;
+  --oxblood:#4b1622; --oxblood-deep:#2e0c14; --gold:#b8935a; --gold-hi:#d9bd88; --on-dark:#f6efe4;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Futura","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --bg:var(--porcelain);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --porcelain:#160c0f; --surface:#21141a; --ink:#f1e8e2; --muted:#b9a7a4; --line:#3a262c;
+  --oxblood:#3d111b; --oxblood-deep:#0e0507; --gold:#d2b07a; --gold-hi:#e6cb97; --on-dark:#f6efe4; --bg:#160c0f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --porcelain:#160c0f; --surface:#21141a; --ink:#f1e8e2; --muted:#b9a7a4; --line:#3a262c;
+  --oxblood:#3d111b; --oxblood-deep:#0e0507; --gold:#d2b07a; --gold-hi:#e6cb97; --on-dark:#f6efe4; --bg:#160c0f; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.7 var(--body)}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,4.6vw,3.3rem)}
+h3{font-size:1.45rem}
+p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%}
+.eyebrow{font:500 .74rem/1 var(--body);letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.lede{color:var(--muted);font-size:1.08rem;max-width:36em;font-weight:300}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule::before,.rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.rule svg{width:18px;height:18px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--oxblood-deep) 92%,transparent);backdrop-filter:blur(10px);color:var(--on-dark);border-bottom:1px solid color-mix(in srgb,var(--gold) 40%,transparent);transition:box-shadow .3s}
+header.is-stuck{box-shadow:0 22px 44px -32px rgba(0,0,0,.95)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-hi));box-shadow:0 0 10px color-mix(in srgb,var(--gold) 70%,transparent);transition:width .1s linear}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;transition:padding .3s}
+header.is-stuck .bar{padding-block:8px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.brand svg{width:46px;height:46px;flex:none;transition:width .3s,height .3s}
+header.is-stuck .brand svg{width:38px;height:38px}
+.brand b{font:400 1.1rem/1.1 var(--display);display:block;letter-spacing:.02em}
+.brand small{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-hi)}
+.nav-toggle{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:44px;height:40px;flex:none;background:transparent;border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);color:var(--gold-hi);cursor:pointer;padding:0;transition:background .25s,color .25s,border-color .25s}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:currentColor;transition:transform .3s,opacity .2s}
+.nav-toggle:hover{background:var(--gold);border-color:var(--gold);color:#1d1208}
+.nav-toggle[aria-expanded="true"]{background:var(--gold);border-color:var(--gold);color:#1d1208}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+nav{display:flex;gap:2px;align-items:center}
+nav a{text-decoration:none;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;padding:10px 14px;position:relative;color:var(--on-dark);transition:color .25s}
+nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:1px;background:var(--gold-hi);transform:scaleX(0);transition:transform .3s}
+nav a:hover::after,nav a[aria-current="page"]::after{transform:scaleX(1)}
+nav a.give-nav{border:1px solid var(--gold);margin-left:8px;color:var(--gold-hi);transition:background .25s,color .25s}
+nav a.give-nav::after{display:none}
+nav a.give-nav:hover{background:var(--gold);color:#1d1208}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+
+/* ---------- buttons ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;overflow:hidden;isolation:isolate;font:500 .8rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;padding:17px 26px;border:1px solid var(--gold);background:var(--gold);color:#1d1208;text-decoration:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .15s,box-shadow .35s;box-shadow:0 12px 26px -20px rgba(29,18,8,.9)}
+.btn::before{content:"";position:absolute;top:-25%;bottom:-25%;left:-70%;width:50%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-18deg);transition:left .65s cubic-bezier(.3,.7,.3,1);pointer-events:none}
+.btn::after{content:"→";font:400 .9rem/1 var(--body);letter-spacing:0;transition:transform .3s}
+.btn:hover::before{left:135%}
+.btn:hover::after{transform:translateX(4px)}
+.btn:hover{background:transparent;color:var(--gold-hi);box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 45%,transparent),0 18px 34px -24px var(--gold)}
+.btn:active{transform:translateY(1px) scale(.985)}
+.btn:focus-visible{outline-offset:4px}
+.btn.line{background:transparent;color:var(--on-dark);border-color:color-mix(in srgb,var(--gold) 70%,transparent)}
+.btn.line:hover{background:var(--gold);border-color:var(--gold);color:#1d1208}
+.btn.dark{background:var(--oxblood);border-color:var(--oxblood);color:var(--on-dark)}
+.btn.dark:hover{background:transparent;border-color:var(--oxblood);color:var(--oxblood);box-shadow:0 0 0 1px color-mix(in srgb,var(--oxblood) 45%,transparent)}
+.btn:disabled{cursor:default}
+.btn.loading{pointer-events:none;color:transparent}
+.btn.loading::before{display:none}
+.btn.loading::after{content:"";width:15px;height:15px;border:2px solid var(--gold-hi);border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+.btn.done{background:var(--gold);border-color:var(--gold);color:#1d1208;pointer-events:none;box-shadow:0 0 0 1px var(--gold)}
+.btn.done::after{content:"✓"}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* ---------- hero ---------- */
+.hero{position:relative;color:var(--on-dark);background:var(--oxblood-deep);overflow:hidden;isolation:isolate}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:saturate(.75)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(30,6,12,.94) 0%,rgba(46,12,20,.82) 45%,rgba(46,12,20,.35) 100%)}
+.hero .wrap{padding-block:clamp(70px,12vw,140px) clamp(60px,9vw,110px);display:grid;gap:26px;max-width:1160px}
+.hero h1{font-size:clamp(2.6rem,7vw,5.6rem);max-width:12em;letter-spacing:-.01em}
+.hero h1 em{color:var(--gold-hi);font-style:italic}
+.hero .lede{color:color-mix(in srgb,var(--on-dark) 82%,transparent);font-size:1.18rem}
+.verse{border-left:1px solid var(--gold);padding-left:18px;max-width:34em;font:italic 400 1.15rem/1.5 var(--display);color:color-mix(in srgb,var(--on-dark) 90%,transparent)}
+.verse cite{display:block;margin-top:8px;font:500 .7rem/1 var(--body);letter-spacing:.3em;text-transform:uppercase;font-style:normal;color:var(--gold-hi)}
+
+/* service strip under hero */
+.strip{background:var(--oxblood);color:var(--on-dark);border-top:1px solid color-mix(in srgb,var(--gold) 50%,transparent)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.svc{padding-block:26px;padding-inline:22px;border-left:1px solid color-mix(in srgb,var(--gold) 30%,transparent);display:grid;gap:4px}
+.svc:first-child{border-left:0;padding-left:0}
+.svc .tag{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-hi);min-height:1em}
+.svc .day{font:400 1.7rem/1.1 var(--display)}
+.svc .time{font-variant-numeric:tabular-nums;letter-spacing:.06em;opacity:.85}
+.svc .name{font-size:.9rem;opacity:.75}
+.svc.soon .day{color:var(--gold-hi)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(64px,9vw,120px);scroll-margin-top:96px}
+.sec-head{display:grid;gap:16px;margin-bottom:48px;max-width:720px}
+.center{text-align:center;margin-inline:auto;justify-items:center}
+.dark{background:var(--oxblood-deep);color:var(--on-dark)}
+.dark .lede{color:color-mix(in srgb,var(--on-dark) 75%,transparent)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+.split.top{align-items:start}
+.split>*{min-width:0}
+
+/* framed photo, gilded */
+.frame{position:relative;padding:14px;margin:0}
+.frame::before{content:"";position:absolute;inset:0;border:1px solid var(--gold)}
+.frame img{width:100%;aspect-ratio:4/5;object-fit:cover;max-width:100%}
+.frame.wide img{aspect-ratio:16/10}
+.frame figcaption{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.dark .frame figcaption{color:color-mix(in srgb,var(--on-dark) 65%,transparent)}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.pillar{padding:36px 28px 8px;border-left:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.pillar:first-child{border-left:0;padding-left:0}
+.pillar .numeral{font:italic 400 2.6rem/1 var(--display);color:var(--gold)}
+.pillar p{color:var(--muted)}
+
+/* leadership */
+.leader-name{font-size:clamp(2.2rem,4vw,3.2rem)}
+.leader-role{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-hi);display:flex;align-items:center;gap:10px}
+.leader-role::before{content:"";width:28px;height:1px;background:var(--gold);flex:none}
+.leader-photos{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:end}
+.leader-photos .frame:last-child img{aspect-ratio:3/4}
+.leader-photos .frame{overflow:hidden}
+.leader-photos .frame img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.leader-photos .frame:hover img{transform:scale(1.05)}
+.lead-sub{margin-bottom:40px}
+.lead-body{position:relative}
+.lead-body::before{content:"O";position:absolute;top:-.22em;left:-.06em;font:italic 400 clamp(9rem,18vw,14rem)/1 var(--display);color:color-mix(in srgb,var(--gold) 9%,transparent);pointer-events:none;user-select:none}
+.lead-body>*{position:relative}
+.lead-rule{height:1px;width:min(240px,60%);background:linear-gradient(90deg,var(--gold),transparent);margin:20px 0 22px;transform-origin:left}
+.lead-quote{border-left:2px solid var(--gold);padding:16px 20px;background:color-mix(in srgb,var(--gold) 8%,transparent);display:grid;gap:6px}
+.lead-quote span{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-hi)}
+.lead-quote p{margin:0;font:italic 400 1.2rem/1.5 var(--display)}
+.lead-tags{display:flex;gap:8px;flex-wrap:wrap;list-style:none;padding:0;margin:0}
+.lead-tags li{display:inline-flex;align-items:center;gap:8px;font:500 .68rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);padding:9px 13px;transition:border-color .3s,background .3s}
+.lead-tags li:hover{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.lead-tags svg{width:14px;height:14px;color:var(--gold)}
+
+/* outreach mosaic */
+.mosaic{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:18px}
+.mosaic figure{margin:0;position:relative;overflow:hidden}
+.mosaic img{width:100%;height:100%;object-fit:cover;max-width:100%;transition:transform 1.2s ease}
+.mosaic figure:hover img{transform:scale(1.04)}
+.mosaic figure:first-child{grid-row:span 2}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;background:linear-gradient(transparent,rgba(20,4,8,.85));color:var(--on-dark);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.mosaic .stock{position:absolute;top:10px;right:10px;background:rgba(20,4,8,.8);color:var(--gold-hi);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 9px}
+
+/* beliefs */
+.beliefs{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px;counter-reset:b;list-style:none;padding:0;margin:0}
+.beliefs li{counter-increment:b;display:grid;grid-template-columns:52px 1fr;gap:10px;padding:20px 0;border-bottom:1px solid var(--line)}
+.beliefs li::before{content:counter(b,upper-roman);font:italic 400 1.3rem/1.4 var(--display);color:var(--gold)}
+
+/* testimonies */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.quote{margin:0;display:grid;gap:18px;align-content:start;padding-top:28px;border-top:1px solid color-mix(in srgb,var(--gold) 50%,transparent)}
+.quote blockquote{margin:0;font:italic 400 1.35rem/1.45 var(--display)}
+.quote figcaption{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-hi)}
+
+/* visit faq */
+.faq{display:grid}
+.faq details{border-bottom:1px solid var(--line);padding:20px 0}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font:400 1.25rem/1.3 var(--display);transition:color .25s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:32px;height:32px;border:1px solid color-mix(in srgb,var(--gold) 65%,transparent);border-radius:50%;background:linear-gradient(var(--gold),var(--gold)) center/12px 1.5px no-repeat,linear-gradient(var(--gold),var(--gold)) center/1.5px 12px no-repeat;transition:transform .4s cubic-bezier(.2,.7,.2,1),background-color .3s,border-color .3s}
+.faq summary:hover{color:var(--gold)}
+.faq summary:hover::after{background-color:color-mix(in srgb,var(--gold) 16%,transparent);transform:scale(1.08)}
+.faq details[open] summary::after{transform:rotate(135deg);border-color:var(--gold)}
+.faq details p{margin-top:12px;color:var(--muted)}
+.faq details[open] p{animation:faqIn .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes faqIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* media page */
+.page-hero{position:relative;overflow:hidden;background:var(--oxblood-deep);color:var(--on-dark);padding-block:clamp(60px,9vw,110px) clamp(40px,6vw,70px)}
+.page-hero .wrap{position:relative;z-index:1}
+.page-hero::after{content:"";position:absolute;inset:auto -12% -55% 42%;height:75%;background:radial-gradient(closest-side,color-mix(in srgb,var(--gold) 20%,transparent),transparent);pointer-events:none}
+.page-hero h1{font-size:clamp(2.6rem,6vw,4.6rem)}
+.sermon{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.sermon .date{font:400 1rem/1.3 var(--display);color:var(--gold);font-variant-numeric:tabular-nums}
+.sermon .meta{color:var(--muted);font-size:.9rem}
+.sermon .links{display:flex;gap:8px}
+.chip{font:500 .7rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;padding:10px 14px;border:1px solid var(--gold);text-decoration:none;color:var(--ink)}
+.chip:hover{background:var(--gold);color:#1d1208}
+.empty{padding:32px;border:1px dashed var(--line);color:var(--muted);text-align:center}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.g-item{margin:0;position:relative;overflow:hidden;background:var(--surface)}
+.g-item:nth-child(1){grid-column:span 2;grid-row:span 2}
+.g-item:nth-child(2){grid-column:span 2}
+.g-item:nth-child(5){grid-column:span 4}
+.g-thumb{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative;overflow:hidden}
+.gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .5s}
+.g-item:nth-child(2) img{aspect-ratio:2/1}
+.g-item:nth-child(5) img{aspect-ratio:21/9}
+.g-item:hover img{transform:scale(1.06);filter:brightness(1.04)}
+.g-item::after{content:"";position:absolute;inset:0;border:1px solid var(--gold);opacity:0;transition:opacity .4s;pointer-events:none;z-index:2}
+.g-item:hover::after,.g-item:focus-within::after{opacity:1}
+.g-thumb::before{content:"";position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:1px solid var(--gold);background:rgba(20,4,8,.55);backdrop-filter:blur(4px);opacity:0;transform:scale(.8);transition:opacity .35s,transform .35s;z-index:2;pointer-events:none}
+.g-thumb::after{content:"";position:absolute;top:50%;left:50%;width:14px;height:14px;border-top:1.5px solid var(--gold-hi);border-right:1.5px solid var(--gold-hi);transform:translate(-50%,-50%) rotate(45deg) scale(.8);opacity:0;transition:opacity .35s .05s,transform .35s .05s;z-index:2;pointer-events:none}
+.g-item:hover .g-thumb::before,.g-item:hover .g-thumb::after{opacity:1}
+.g-item:hover .g-thumb::before{transform:scale(1)}
+.g-item:hover .g-thumb::after{transform:translate(-50%,-50%) rotate(45deg) scale(1)}
+.gallery figcaption{position:absolute;inset:auto 0 0 0;margin:0;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(20,4,8,.88));color:var(--on-dark);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;transform:translateY(8px);opacity:.92;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s;pointer-events:none;z-index:1}
+.g-item:hover figcaption,.g-item:focus-within figcaption{transform:none;opacity:1}
+
+/* gallery lightbox */
+.lightbox{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:rgba(14,5,7,.93);backdrop-filter:blur(10px);padding:24px;animation:lbIn .3s ease both}
+.lightbox[hidden]{display:none}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+.lightbox figure{margin:0;max-width:min(1040px,92vw);display:grid;gap:14px;justify-items:center;animation:lbZoom .35s cubic-bezier(.2,.7,.2,1) both}
+@keyframes lbZoom{from{transform:scale(.94);opacity:0}to{transform:none;opacity:1}}
+.lightbox img{max-height:76vh;max-width:100%;width:auto;border:1px solid color-mix(in srgb,var(--gold) 50%,transparent);background:var(--oxblood-deep)}
+.lightbox figcaption{color:var(--on-dark);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);background:rgba(20,4,8,.6);color:var(--gold-hi);font:300 1.5rem/1 var(--body);cursor:pointer;display:grid;place-items:center;padding:0;transition:background .25s,color .25s,transform .2s}
+.lb-btn:hover{background:var(--gold);color:#1d1208}
+.lb-btn:active{transform:translateY(-50%) scale(.94)}
+.lb-prev{left:18px}
+.lb-next{right:18px}
+.lb-close{top:18px;right:18px;transform:none;font-size:1.3rem}
+.lb-close:hover{background:var(--gold)}
+.lb-close:active{transform:scale(.94)}
+.lb-count{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:color-mix(in srgb,var(--on-dark) 70%,transparent);font-size:.7rem;letter-spacing:.3em;font-variant-numeric:tabular-nums}
+@media (max-width:640px){.lb-prev{left:8px}.lb-next{right:8px}.lb-btn{width:42px;height:42px}}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.post{display:grid;gap:12px;align-content:start}
+.post .kicker{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.post p{color:var(--muted)}
+.post details summary{cursor:pointer;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--gold);display:inline-block;padding-bottom:3px}
+.post details p{margin-top:12px}
+
+/* connect page */
+.cal{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.cal .ev{background:var(--surface);padding:24px;display:grid;gap:4px}
+.cal .ev .when{font:400 1.4rem/1.2 var(--display)}
+.cal .ev .tag{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);min-height:1em}
+.cal .ev .time{font-variant-numeric:tabular-nums;color:var(--muted)}
+.give-box{border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);padding:clamp(24px,4vw,44px);display:grid;gap:18px}
+.kv{display:grid;gap:2px}
+.kv span{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-hi)}
+.kv b{font-weight:500;font-size:1.1rem}
+.acct{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.acct code{font:500 1.6rem/1 var(--display);letter-spacing:.12em;font-variant-numeric:tabular-nums;user-select:all}
+.copy{background:transparent;border:1px solid var(--gold);color:var(--on-dark);font:500 .68rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;padding:9px 12px;cursor:pointer;transition:background .25s,color .25s,transform .15s}
+.copy:hover{background:var(--gold);color:#1d1208}
+.copy:active{transform:scale(.96)}
+.copy.done{background:var(--gold);color:#1d1208}
+form{display:grid;gap:18px}
+label{display:grid;gap:6px;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+input,textarea,select{font:400 1rem/1.4 var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;width:100%;border-radius:0}
+input:focus,textarea:focus,select:focus{outline:none;border-bottom-color:var(--gold)}
+select{background:var(--bg)}
+textarea{min-height:110px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.check{display:flex;gap:10px;align-items:center;text-transform:none;letter-spacing:0;font-size:.95rem}
+.check input{width:auto}
+.note{border-left:2px solid var(--gold);padding:10px 14px;background:color-mix(in srgb,var(--gold) 10%,transparent);font-size:.95rem}
+.hp{position:absolute;left:-9999px}
+address{font:normal 400 1.15rem/1.6 var(--display)}
+
+/* smart contact */
+.contact-grid{align-items:start}
+.contact-info{display:grid;gap:12px}
+.ccards{display:grid;gap:12px}
+.ccard{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);background:var(--bg);text-decoration:none;color:inherit;transition:border-color .3s,transform .3s,box-shadow .3s}
+a.ccard:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 22px 38px -30px rgba(0,0,0,.5)}
+.ccard .ic{width:20px;height:20px;flex:none;color:var(--gold);margin-top:3px}
+.ccard span{display:block;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.ccard b{font-weight:500;font-size:1.05rem;line-height:1.4}
+.ccard address{font-size:1rem;line-height:1.55}
+.field{position:relative}
+.field input,.field textarea,.field select{padding:26px 0 8px;border-radius:0}
+.field label{position:absolute;left:0;top:17px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);pointer-events:none;transition:top .2s,font-size .2s,color .2s}
+.field input:focus+label,.field textarea:focus+label,.field input:not(:placeholder-shown)+label,.field textarea:not(:placeholder-shown)+label{top:3px;font-size:.6rem;color:var(--gold)}
+.field.bad input,.field.bad textarea{border-bottom-color:#b3404a}
+.count{position:absolute;right:0;bottom:8px;font-size:.66rem;color:var(--muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.chips-row{display:flex;gap:8px;flex-wrap:wrap}
+.topic{font:500 .68rem/1 var(--body);letter-spacing:.18em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:border-color .25s,color .25s,transform .15s}
+.topic:hover{border-color:var(--gold);color:var(--gold)}
+.topic:active{transform:scale(.96)}
+
+/* location / GPS */
+#location{background:var(--surface)}
+.loc-facts{display:grid;gap:14px;margin-top:6px}
+.loc-facts .kv span{color:var(--gold)}
+.mapbox{position:relative;padding:14px;margin:0;width:100%;max-width:520px;margin-inline:auto}
+.mapbox::before{content:"";position:absolute;inset:0;border:1px solid var(--gold);pointer-events:none;z-index:1}
+.mapbox iframe{display:block;width:100%;aspect-ratio:1/1;border:0;background:var(--bg)}
+.mapbox figcaption{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px;text-align:center}
+
+footer{background:var(--oxblood-deep);color:var(--on-dark);padding-block:56px 40px;border-top:1px solid color-mix(in srgb,var(--gold) 40%,transparent)}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h4{margin:0 0 10px;font:500 .7rem/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--gold-hi)}
+footer p{opacity:.78;font-size:.95rem}
+footer .fine{grid-column:1/-1;border-top:1px solid color-mix(in srgb,var(--gold) 25%,transparent);padding-top:20px;font-size:.78rem;opacity:.55;letter-spacing:.06em}
+
+/* micro-interactions */
+.svc{transition:background-color .3s}
+.svc:hover{background-color:color-mix(in srgb,#fff 5%,transparent)}
+.chip{transition:background .25s,color .25s,transform .2s,box-shadow .3s}
+.chip:hover{transform:translateY(-2px);box-shadow:0 12px 22px -16px var(--gold)}
+.chip:active{transform:none}
+.sermon{padding-inline:14px;margin-inline:-14px}
+.sermon:hover{background:color-mix(in srgb,var(--gold) 8%,transparent)}
+.pillar:hover .numeral{transform:translateY(-3px)}
+.numeral{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.quote{transition:border-color .35s}
+.quote:hover{border-top-color:var(--gold-hi)}
+.cal .ev{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.cal .ev:hover{transform:translateY(-5px);box-shadow:0 28px 46px -34px rgba(0,0,0,.7);position:relative;z-index:1}
+.post details summary{transition:color .25s}
+.post details summary:hover{color:var(--gold)}
+.totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:30;width:46px;height:46px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--gold);background:color-mix(in srgb,var(--oxblood-deep) 92%,transparent);backdrop-filter:blur(8px);color:var(--gold-hi);font:400 1.05rem/1 var(--body);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .3s,transform .3s,visibility .3s,background .25s,color .25s;box-shadow:0 16px 30px -20px rgba(0,0,0,.9)}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:var(--gold);color:#1d1208}
+
+/* entrance */
+@media (prefers-reduced-motion:no-preference){
+  .hero .wrap>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero .wrap>*:nth-child(2){animation-delay:.12s}.hero .wrap>*:nth-child(3){animation-delay:.24s}
+  .hero .wrap>*:nth-child(4){animation-delay:.36s}.hero .wrap>*:nth-child(5){animation-delay:.48s}
+  @keyframes rise{from{transform:translateY(18px)}to{transform:none}}
+  [data-page]:not([hidden]){animation:pageIn .45s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1),border-color .35s ease,background-color .3s ease,box-shadow .4s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+
+@media (max-width:900px){
+  nav a:not(.give-nav){padding:10px 8px;font-size:.72rem;letter-spacing:.12em}
+  .brand small{display:none}
+  .split,.mosaic,.leader-photos{grid-template-columns:1fr}
+  .mosaic figure:first-child{grid-row:auto}
+  .lead-sub{margin-bottom:0}
+  .lead-sub img{max-height:380px;object-fit:cover;width:100%}
+  .pillars,.quotes,.posts,.cal{grid-template-columns:1fr}
+  .pillar{border-left:0;padding-left:0;border-bottom:1px solid var(--line);padding-bottom:28px}
+  .beliefs{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .g-item:nth-child(1),.g-item:nth-child(2),.g-item:nth-child(5){grid-column:span 2;grid-row:auto}
+  .g-item:nth-child(1) img{aspect-ratio:16/10}
+  footer .wrap{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .nav-toggle{display:flex}
+  nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:color-mix(in srgb,var(--oxblood-deep) 97%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb,var(--gold) 45%,transparent);padding:10px max(20px,env(safe-area-inset-left,0px)) 18px;box-shadow:0 30px 50px -35px rgba(0,0,0,.95);opacity:0;visibility:hidden;transform:translateY(-10px);transition:opacity .28s,transform .28s,visibility .28s;pointer-events:none}
+  nav.open{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+  nav a:not(.give-nav){padding:14px 4px;font-size:.8rem;letter-spacing:.16em;border-bottom:1px solid color-mix(in srgb,var(--gold) 16%,transparent)}
+  nav a::after{display:none}
+  nav a[aria-current="page"]{color:var(--gold-hi)}
+  nav a.give-nav{margin:12px 0 0;text-align:center;padding:14px}
+}
+@media (max-width:640px){
+  .strip .wrap{grid-template-columns:1fr}
+  .svc{border-left:0;padding-left:0;border-top:1px solid color-mix(in srgb,var(--gold) 30%,transparent)}
+  .svc:first-child{border-top:0}
+  .row2{grid-template-columns:1fr}
+  .sermon{grid-template-columns:1fr;gap:8px}
+  .gallery{grid-template-columns:1fr;gap:12px}
+  .g-item:nth-child(1),.g-item:nth-child(2),.g-item:nth-child(5){grid-column:span 1}
+  .g-item:nth-child(1) img,.g-item:nth-child(2) img,.g-item:nth-child(3) img,.g-item:nth-child(4) img,.g-item:nth-child(5) img{aspect-ratio:4/3}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="seal" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="94" fill="#2e0c14" stroke="#d9bd88" stroke-width="3"/>
+      <circle cx="100" cy="100" r="84" fill="none" stroke="#d9bd88" stroke-width="1" opacity=".6"/>
+      <g fill="none" stroke="#d9bd88" stroke-width="1.4" opacity=".45">
+        <ellipse cx="100" cy="100" rx="36" ry="78"/><ellipse cx="100" cy="100" rx="62" ry="78"/>
+        <path d="M30 76h140M22 100h156M30 124h140"/>
+      </g>
+      <path d="M58 92c15-7 30-7 42 2v40c-12-9-27-9-42-2z" fill="#f6efe4"/>
+      <path d="M142 92c-15-7-30-7-42 2v40c12-9 27-9 42-2z" fill="#f6efe4"/>
+      <path d="M100 94v40" stroke="#b8935a" stroke-width="2"/>
+      <path d="M100 46v34M89 58h22" stroke="#d9bd88" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="cross" viewBox="0 0 24 24"><path d="M12 3v18M7 8h10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home" data-go="home" aria-label="Heaven Reign Transformation Ministry, home">
+      <svg><use href="#seal"/></svg>
+      <span><b>Heaven Reign</b><small>Transformation Ministry Inc.</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav aria-label="Main" id="mainnav">
+      <a href="#home" data-go="home">Home</a>
+      <a href="#media" data-go="media">Media</a>
+      <a href="#connect" data-go="connect">Connect</a>
+      <a href="#give" data-go="connect" data-anchor="give" class="give-nav">Give</a>
+    </nav>
+  </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main>
+<!-- =================== HOME =================== -->
+<div data-page="home">
+  <div class="hero">
+    <img src="images/outreach-gathering.jpg" alt="" fetchpriority="high">
+    <div class="wrap">
+      <p class="eyebrow">Tulsa, Oklahoma · To the nations</p>
+      <h1>Where Heaven reigns, <em>lives are transformed.</em></h1>
+      <p class="lede">A ministry of teaching, healing prayer and outreach, gathering three evenings every week so that every seeker can understand God's plan for their life.</p>
+      <p class="verse">“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.”<cite>Jeremiah 29 : 11</cite></p>
+      <div class="btns">
+        <a class="btn" href="#visit" data-go="home" data-anchor="visit">Plan your visit</a>
+        <a class="btn line" href="#media" data-go="media">Watch a message</a>
+      </div>
+    </div>
+  </div>
+  <div class="strip" aria-label="Weekly service times">
+    <div class="wrap" id="strip"></div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our calling</p>
+        <h2>Three commitments to every person who comes through our doors.</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="numeral">i.</span><h3>Information &amp; access</h3><p>Clear service times, location, contact details and leadership, so first-time visitors know exactly what to expect.</p></div>
+        <div class="pillar"><span class="numeral">ii.</span><h3>Evangelism &amp; outreach</h3><p>Foundational beliefs, personal testimonies and a warm welcome for faith seekers learning God's plans for their lives.</p></div>
+        <div class="pillar"><span class="numeral">iii.</span><h3>Community &amp; discipleship</h3><p>Sermon archives, an event calendar, prayer requests and online giving that keep members connected all week.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="leadership">
+    <div class="wrap split">
+      <div class="leader-photos">
+        <figure class="frame lead-main"><img src="images/oliver-oru.jpg" alt="Oliver C. Nguwah waving in front of the Oral Roberts University monument in Tulsa" loading="lazy"><figcaption>Oral Roberts University, Tulsa</figcaption></figure>
+        <figure class="frame lead-sub"><img src="images/oliver-office.jpg" alt="Oliver C. Nguwah seated at his desk" loading="lazy" style="object-position:45% 30%"><figcaption>In the ministry office</figcaption></figure>
+      </div>
+      <div class="lead-body">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">Leadership</p>
+          <h2 class="leader-name">Oliver C. Nguwah</h2>
+          <p class="leader-role" id="leader-role">Founder</p>
+        </div>
+        <div class="lead-rule" aria-hidden="true"></div>
+        <p class="lede">Oliver leads Heaven Reign Transformation Ministry from Tulsa with a heart for both the local church and communities far from home.</p>
+        <div class="lead-quote"><span>His conviction</span><p>The Word of God, taught clearly and lived out in love, transforms people, families and nations.</p></div>
+        <ul class="lead-tags">
+          <li><svg aria-hidden="true"><use href="#i-pin"/></svg>Tulsa, Oklahoma</li>
+          <li><svg aria-hidden="true"><use href="#cross"/></svg>To the nations</li>
+        </ul>
+        <div class="btns">
+          <a class="btn" href="#contact" data-go="connect" data-anchor="contact">Write to Oliver</a>
+          <a class="btn line" href="#media" data-go="media">Hear his messages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Outreach</p>
+        <h2>The Gospel, carried beyond our walls.</h2>
+        <p class="lede">Teaching gatherings, meals for children and discipleship groups. Your prayers and giving make each one possible.</p>
+      </div>
+      <div class="mosaic">
+        <figure><img src="images/outreach-gathering.jpg" alt="A large gathering of women and children seated on mats outdoors, listening to teaching" loading="lazy"><figcaption>Open-air teaching gathering</figcaption></figure>
+        <figure><img src="images/feeding-children.jpg" alt="Children holding plates while a volunteer serves food" loading="lazy" style="aspect-ratio:4/3"><span class="stock">Sample photo</span><figcaption>Feeding the children</figcaption></figure>
+        <figure><img src="images/discipleship-group.jpg" alt="Adults gathered around a table in a discussion group" loading="lazy" style="aspect-ratio:4/3"><span class="stock">Sample photo</span><figcaption>Discipleship groups</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface)">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="rule" style="width:180px"><svg><use href="#cross"/></svg></div>
+        <p class="eyebrow">What we believe</p>
+        <h2>Foundational beliefs</h2>
+      </div>
+      <ol class="beliefs">
+        <li>The Bible is the inspired Word of God and our guide for life.</li>
+        <li>There is one God, eternally Father, Son and Holy Spirit.</li>
+        <li>Salvation is by grace through faith in Jesus Christ alone.</li>
+        <li>God still heals, delivers and restores today.</li>
+        <li>Every believer is called to grow, to serve and to give.</li>
+        <li>The Kingdom of Heaven transforms people and nations.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Testimonies</p>
+        <h2>What God is doing among us.</h2>
+      </div>
+      <div class="quotes">
+        <figure class="quote"><blockquote>I came to Faith Clinic with questions and left with a promise I could stand on.</blockquote><figcaption>Faith Clinic · sample</figcaption></figure>
+        <figure class="quote"><blockquote>The Friday prayer carried me through the hardest season of my life.</blockquote><figcaption>Healing Hours · sample</figcaption></figure>
+        <figure class="quote"><blockquote>Sunday evenings gave me courage to serve my neighbours.</blockquote><figcaption>Empowerment Hours · sample</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap split top">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Plan your visit</p>
+        <h2>Your first evening with us.</h2>
+        <p class="lede" id="visit-where"></p>
+        <div class="btns"><a class="btn dark" href="#connect" data-go="connect">See upcoming dates</a></div>
+      </div>
+      <div class="faq">
+        <details open><summary>What happens at each gathering?</summary><p>Wednesday Faith Clinic is Bible teaching with time for questions. Friday Healing Hours is worship and prayer for healing. Sunday Empowerment Hours is teaching and practical equipping for the week ahead.</p></details>
+        <details><summary>What should I wear?</summary><p>Whatever is comfortable. Come as you are.</p></details>
+        <details><summary>Can someone pray with me?</summary><p>Yes. The prayer team prays with anyone who asks, at every gathering. You can also send a request online.</p></details>
+        <details><summary>Are children welcome?</summary><p>Yes. Families are welcome at every gathering.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" style="padding-block:clamp(48px,7vw,80px)">
+    <div class="wrap split">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Our home online</p>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem)">A digital home that belongs to the ministry.</h2>
+      </div>
+      <p class="lede">Our messages, service times and testimonies live here, on a site we own. They are not subject to the algorithm shifts or policy changes of social media platforms.</p>
+    </div>
+  </section>
+</div>
+
+<!-- =================== MEDIA =================== -->
+<div data-page="media" hidden>
+  <div class="page-hero"><div class="wrap sec-head" style="margin-bottom:0">
+    <p class="eyebrow">Media</p><h1>Sermons, stories &amp; gallery</h1>
+    <p class="lede">Messages from Faith Clinic, Healing Hours and Empowerment Hours, with words for the week from our blog.</p>
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Sermon archive</p><h2>Listen &amp; watch</h2></div>
+      <div id="sermons"></div>
+      <div class="empty" id="sermons-empty">The first recordings will appear here, each with the date, service, scripture, and links to watch or listen.</div>
+    </div>
+  </section>
+
+  <section style="background:var(--surface)" id="gallery">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Gallery</p><h2>Life in the ministry</h2></div>
+      <div class="gallery">
+        <figure class="g-item"><button class="g-thumb" type="button" aria-label="View: Oliver C. Nguwah at Oral Roberts University"><img src="images/oliver-oru.jpg" alt="Oliver C. Nguwah at Oral Roberts University" loading="lazy"></button><figcaption>Oliver C. Nguwah · Oral Roberts University</figcaption></figure>
+        <figure class="g-item"><button class="g-thumb" type="button" aria-label="View: Outreach teaching gathering"><img src="images/outreach-gathering.jpg" alt="Outdoor teaching gathering" loading="lazy"></button><figcaption>Outreach teaching gathering</figcaption></figure>
+        <figure class="g-item"><button class="g-thumb" type="button" aria-label="View: Feeding program"><img src="images/feeding-children.jpg" alt="Children receiving a meal" loading="lazy"></button><figcaption>Feeding program · sample photo</figcaption></figure>
+        <figure class="g-item"><button class="g-thumb" type="button" aria-label="View: Ministry office"><img src="images/oliver-office.jpg" alt="Oliver C. Nguwah at his desk" loading="lazy"></button><figcaption>Ministry office</figcaption></figure>
+        <figure class="g-item"><button class="g-thumb" type="button" aria-label="View: Discipleship group"><img src="images/discipleship-group.jpg" alt="Discussion group around a table" loading="lazy"></button><figcaption>Discipleship group · sample photo</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Blog</p><h2>Words for the week</h2></div>
+      <div class="posts">
+        <article class="post"><span class="kicker">Faith Clinic</span><h3>Faith that works on a Wednesday</h3><p>Faith is not only for Sunday. It is how we answer the ordinary pressures of the middle of the week.</p>
+          <details><summary>Read more</summary><p>Hebrews 11:1 calls faith the substance of things hoped for. Substance is something you can stand on. This week, choose one promise of God and stand on it in one specific situation: a conversation, a bill, a decision. Bring your story to Faith Clinic.</p></details></article>
+        <article class="post"><span class="kicker">Healing Hours</span><h3>Bring the whole person</h3><p>God cares for body, mind and spirit. Healing Hours is a place to bring all three.</p>
+          <details><summary>Read more</summary><p>In Mark 5, the woman who touched Jesus' garment received more than physical healing. He called her daughter and sent her away in peace. Come on Friday ready to receive prayer, and to pray for one another.</p></details></article>
+        <article class="post"><span class="kicker">Empowerment Hours</span><h3>Equipped to go</h3><p>We gather on Sunday evening to be strengthened for the week ahead.</p>
+          <details><summary>Read more</summary><p>Ephesians 4:12 says leaders are given to equip the saints for the work of ministry. Empowerment Hours is about practical growth in prayer, in Scripture, and in serving the people God has placed around you.</p></details></article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =================== CONNECT =================== -->
+<div data-page="connect" hidden>
+  <div class="page-hero"><div class="wrap sec-head" style="margin-bottom:0">
+    <p class="eyebrow">Connect</p><h1>Gather, give &amp; pray with us</h1>
+    <p class="lede">Upcoming gatherings, ways to support the ministry, prayer requests and how to reach us.</p>
+  </div></div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Event calendar</p><h2>The next two weeks</h2><p class="lede">All times Central.</p></div>
+      <div class="cal" id="cal"></div>
+      <div class="btns" style="margin-top:24px"><a class="btn dark" href="calendar.ics">Add to my calendar</a></div>
+    </div>
+  </section>
+
+  <section class="dark" id="give">
+    <div class="wrap split top">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Giving</p>
+        <h2>Partner with the work.</h2>
+        <p class="lede">Your generosity funds teaching, healing prayer, meals for children and outreach in Tulsa and beyond.</p>
+        <p class="verse">“Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver.”<cite>2 Corinthians 9 : 7</cite></p>
+      </div>
+      <div class="give-box">
+        <div id="give-online" hidden><div class="kv"><span>Give online</span></div><div class="btns" id="give-links" style="margin-top:12px"></div></div>
+        <div class="kv"><span>Bank</span><b>Arvest Bank</b></div>
+        <div class="kv"><span>Account name</span><b>Heaven Reign Transformation Ministry Inc.</b></div>
+        <div class="kv"><span>Account number</span><div class="acct"><code id="acct">37436618</code><button class="copy" type="button" id="copyAcct">Copy</button><small id="copyMsg" role="status"></small></div></div>
+        <div class="kv" id="routing-row" hidden><span>Routing number</span><div class="acct"><code id="routing"></code></div></div>
+        <p style="opacity:.7;font-size:.9rem" id="routing-note">For the routing number or other ways to give, send us a message below.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="prayer">
+    <div class="wrap split top">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Prayer requests</p>
+        <h2>Let us pray with you.</h2>
+        <p class="lede">Our prayer team reads every request. Choose “keep private” and only the leadership will see it.</p>
+      </div>
+      <form name="prayer" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-kind="Prayer request">
+        <input type="hidden" name="form-name" value="prayer">
+        <p class="hp"><label>Leave empty <input name="bot-field" id="p-bot" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field"><input id="p-name" name="name" placeholder=" " autocomplete="given-name"><label for="p-name">First name (optional)</label></div>
+        <div class="chips-row" role="group" aria-label="Quick start your request">
+          <button type="button" class="topic" data-fill="Healing: ">Healing</button>
+          <button type="button" class="topic" data-fill="My family: ">Family</button>
+          <button type="button" class="topic" data-fill="Work and provision: ">Provision</button>
+          <button type="button" class="topic" data-fill="Salvation for: ">Salvation</button>
+        </div>
+        <div class="field"><textarea id="p-text" name="request" placeholder=" " required maxlength="1500"></textarea><label for="p-text">Your request</label><span class="count"></span></div>
+        <label class="check" for="p-private"><input type="checkbox" id="p-private" name="private" value="yes"> Keep private (leadership only)</label>
+        <div><button class="btn dark" type="submit">Send prayer request</button></div>
+        <div class="note" role="status" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--surface)">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Contact</p><h2>Get in touch.</h2><p class="lede">Questions about visiting, giving or serving? Write to us — we usually reply within one to two days.</p></div>
+      <div class="split contact-grid">
+        <div class="contact-info">
+          <div id="contact-lines" class="ccards"></div>
+          <div class="ccard"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><div><span>Reply time</span><b>Usually within 1–2 days</b></div></div>
+          <div class="ccard"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><div><span>Write to us</span><address>Oliver C. Nguwah<span id="leader-title"></span><br>Heaven Reign Transformation Ministry Inc.<br>7305 S. Victor Avenue, Apt 516<br>Tulsa, OK 74136</address></div></div>
+        </div>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-kind="Message">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Leave empty <input name="bot-field" id="c-bot" tabindex="-1" autocomplete="off"></label></p>
+          <div class="row2">
+            <div class="field"><input id="c-name" name="name" placeholder=" " required autocomplete="name"><label for="c-name">Name</label></div>
+            <div class="field"><input id="c-email" name="email" type="email" placeholder=" " required autocomplete="email"><label for="c-email">Email</label></div>
+          </div>
+          <div class="row2">
+            <div class="field"><input id="c-phone" name="phone" type="tel" placeholder=" " autocomplete="tel"><label for="c-phone">Phone (optional)</label></div>
+            <div class="field"><select id="c-topic" name="topic"><option>Planning a visit</option><option>Giving</option><option>Serving</option><option>Outreach</option><option>Other</option></select><label for="c-topic" style="top:3px;font-size:.6rem">Topic</label></div>
+          </div>
+          <div class="field"><textarea id="c-msg" name="message" placeholder=" " required maxlength="2000"></textarea><label for="c-msg">Message</label><span class="count"></span></div>
+          <div><button class="btn dark" type="submit">Send message</button></div>
+          <div class="note" role="status" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="wrap split">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Location &amp; GPS</p>
+        <h2>Find us in Tulsa.</h2>
+        <p class="lede">We gather at the address below on Wednesday, Friday and Sunday evenings. Use directions for turn-by-turn navigation from wherever you are.</p>
+        <div class="loc-facts">
+          <div class="kv"><span>Address</span><b>7305 S. Victor Avenue, Apt 516<br>Tulsa, OK 74136</b></div>
+          <div class="kv"><span>GPS coordinates</span><b id="loc-coords">36.0860° N · 95.9340° W</b></div>
+          <div class="kv"><span>Time zone</span><b>Central Time · America/Chicago</b></div>
+        </div>
+        <div class="btns">
+          <a class="btn" id="dirBtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=7305%20S.%20Victor%20Avenue%2C%20Apt%20516%2C%20Tulsa%2C%20OK%2074136" target="_blank" rel="noopener">Get directions</a>
+          <button class="btn dark" id="copyCoords" type="button">Copy coordinates</button>
+        </div>
+      </div>
+      <figure class="mapbox">
+        <iframe id="mapFrame" title="Map showing 7305 S. Victor Avenue, Tulsa, Oklahoma" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=36.086,-95.934&amp;z=15&amp;output=embed"></iframe>
+        <figcaption>7305 S. Victor Avenue, Apt 516 · Tulsa, OK 74136</figcaption>
+      </figure>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><svg width="54" height="54" aria-hidden="true"><use href="#seal"/></svg>
+      <p style="font:400 1.3rem/1.3 var(--display);opacity:1;margin-top:12px">Heaven Reign Transformation Ministry Inc.</p></div>
+    <div><h4>Gatherings</h4><p>Wednesday · Faith Clinic · 6:00–7:30 pm<br>Friday · Healing Hours · 6:00–8:30 pm<br>Sunday · Empowerment Hours · 6:00–8:00 pm</p></div>
+    <div><h4>Mail</h4><p>7305 S. Victor Avenue, Apt 516<br>Tulsa, OK 74136</p></div>
+    <p class="fine">© <span id="yr">2026</span> Heaven Reign Transformation Ministry Inc. · Tulsa, Oklahoma</p>
+  </div>
+</footer>
+
+<button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-btn lb-close" type="button" aria-label="Close gallery">×</button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo">›</button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+<script>
+/* =====================================================================
+   SITE SETTINGS — edit these values, save, and re-upload the site.
+   Any value left as "" stays hidden on the page.
+   ===================================================================== */
+window.SITE={
+  email:"",              // e.g. "info@heavenreign.org"
+  phone:"",              // e.g. "(918) 555-0123"
+  leaderTitle:"",        // e.g. "Senior Pastor"; shown under Oliver's name
+  serviceLocation:"",    // where services meet, e.g. "123 Main St, Tulsa, OK 74136"
+  routingNumber:"",      // Arvest routing number for bank transfers
+  location:{             // GPS coordinates for the meeting address
+    lat:"36.0860",       // adjust to the exact building coordinates
+    lng:"-95.9340"
+  },
+  giving:{
+    tithely:"",          // e.g. "https://tithe.ly/give?c=XXXX"
+    paypal:"",           // e.g. "https://www.paypal.com/donate/?hosted_button_id=XXXX"
+    zelle:""             // Zelle email or phone, shown as text
+  },
+  sermons:[              // newest first
+    // {date:"2026-10-18", title:"Equipped to Go", service:"Empowerment Hours", scripture:"Ephesians 4:11-16", video:"https://youtube.com/...", audio:""}
+  ]
+};
+
+(function(){
+  const S=window.SITE, $=id=>document.getElementById(id);
+  const a=(href,text,cls)=>{const x=document.createElement("a");x.href=href;x.textContent=text;x.className=cls;x.target="_blank";x.rel="noopener";return x};
+  $("yr").textContent=new Date().getFullYear();
+
+  // leadership + contact
+  if(S.leaderTitle){$("leader-role").textContent=S.leaderTitle;$("leader-title").textContent=", "+S.leaderTitle}
+  const ic=id=>'<svg class="ic" aria-hidden="true"><use href="#'+id+'"/></svg>';
+  [["Email",S.email,"mailto:"+S.email,"i-mail"],["Phone",S.phone,"tel:"+S.phone.replace(/[^\d+]/g,""),"i-phone"]].forEach(([k,v,href,icon])=>{
+    if(!v)return;
+    const el=document.createElement("a");el.className="ccard";el.href=href;
+    el.innerHTML=ic(icon)+'<div><span></span><b></b></div>';
+    el.querySelector("span").textContent=k;el.querySelector("b").textContent=v;
+    $("contact-lines").appendChild(el);
+  });
+  $("visit-where").textContent=S.serviceLocation?"We meet at "+S.serviceLocation+". Arrive a few minutes early and someone will welcome you at the door.":"We meet in Tulsa, Oklahoma. Send us a message for directions and someone will welcome you at the door.";
+
+  // giving
+  if(S.routingNumber){$("routing").textContent=S.routingNumber;$("routing-row").hidden=false;$("routing-note").textContent="Questions about giving? Send us a message below."}
+  const gl=$("give-links");
+  if(S.giving.tithely)gl.appendChild(a(S.giving.tithely,"Tithe.ly","btn"));
+  if(S.giving.paypal)gl.appendChild(a(S.giving.paypal,"PayPal","btn line"));
+  if(S.giving.zelle){const z=document.createElement("p");z.style.width="100%";z.textContent="Zelle: "+S.giving.zelle;gl.appendChild(z)}
+  $("give-online").hidden=!gl.children.length;
+  $("copyAcct").addEventListener("click",()=>{
+    const m=$("copyMsg"),el=$("acct"),b=$("copyAcct");
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent="Selected"};
+    const ok=()=>{m.textContent="Copied";b.classList.add("done");b.textContent="✓ Copied";setTimeout(()=>{b.classList.remove("done");b.textContent="Copy"},1800)};
+    try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(_){sel()}
+  });
+
+  // sermons
+  S.sermons.forEach(s=>{
+    const r=document.createElement("div");r.className="sermon";
+    r.innerHTML='<div class="date"></div><div><h3></h3><div class="meta"></div></div><div class="links"></div>';
+    r.querySelector(".date").textContent=s.date?new Date(s.date+"T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"";
+    r.querySelector("h3").textContent=s.title||"Message";
+    r.querySelector(".meta").textContent=[s.service,s.scripture].filter(Boolean).join(" · ");
+    if(s.video)r.querySelector(".links").appendChild(a(s.video,"Watch","chip"));
+    if(s.audio)r.querySelector(".links").appendChild(a(s.audio,"Listen","chip"));
+    $("sermons").appendChild(r);
+  });
+  $("sermons-empty").hidden=S.sermons.length>0;
+
+  // schedule, computed in Tulsa time
+  const EV=[{dow:3,day:"Wednesday",title:"Faith Clinic",s:1080,e:1170,label:"6:00 – 7:30 pm"},
+            {dow:5,day:"Friday",title:"Healing Hours",s:1080,e:1230,label:"6:00 – 8:30 pm"},
+            {dow:0,day:"Sunday",title:"Empowerment Hours",s:1080,e:1200,label:"6:00 – 8:00 pm"}];
+  const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
+  const today=Date.UTC(+p.year,+p.month-1,+p.day), mins=(+p.hour%24)*60+(+p.minute);
+  const occ=[];
+  for(let i=0;i<15;i++){const d=new Date(today+i*864e5);EV.forEach(e=>{if(d.getUTCDay()!==e.dow||(i===0&&mins>=e.e))return;occ.push({e,d,i,live:i===0&&mins>=e.s})})}
+  const tag=o=>o.live?"Happening now":o.i===0?"Tonight":o.i===1?"Tomorrow":"";
+  const fmt=d=>d.toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric",timeZone:"UTC"});
+  EV.forEach(e=>{const o=occ.find(x=>x.e===e);const el=document.createElement("div");el.className="svc"+(o&&o.i<=1?" soon":"");
+    el.innerHTML='<span class="tag"></span><span class="day"></span><span class="time"></span><span class="name"></span>';
+    el.children[0].textContent=o?tag(o):"";el.children[1].textContent=e.day;el.children[2].textContent=e.label;el.children[3].textContent=e.title;$("strip").appendChild(el)});
+  occ.slice(0,6).forEach(o=>{const el=document.createElement("div");el.className="ev";
+    el.innerHTML='<span class="tag"></span><span class="when"></span><span></span><span class="time"></span>';
+    el.children[0].textContent=tag(o);el.children[1].textContent=fmt(o.d);el.children[2].textContent=o.e.title;el.children[3].textContent=o.e.label;$("cal").appendChild(el)});
+
+  // three pages, one file
+  const pageOf={visit:"home",leadership:"home",media:"media",gallery:"media",blog:"media",connect:"connect",give:"connect",prayer:"connect",contact:"connect",location:"connect"};
+  function show(page,anchor){
+    document.querySelectorAll("[data-page]").forEach(x=>x.hidden=x.dataset.page!==page);
+    document.querySelectorAll("nav a:not(.give-nav)").forEach(x=>x.dataset.go===page?x.setAttribute("aria-current","page"):x.removeAttribute("aria-current"));
+    const t=anchor&&$(anchor); if(t)requestAnimationFrame(()=>t.scrollIntoView({behavior:"smooth"})); else window.scrollTo(0,0);
+  }
+  document.addEventListener("click",e=>{const x=e.target.closest("[data-go]");if(!x)return;e.preventDefault();
+    try{history.replaceState(null,"","#"+(x.dataset.anchor||x.dataset.go))}catch(_){}
+    show(x.dataset.go,x.dataset.anchor)});
+  const h=location.hash.slice(1); show(pageOf[h]||"home",pageOf[h]&&h!==pageOf[h]?h:null);
+
+  // forms: delivered by Netlify Forms once hosted on Netlify
+  const LIVE=/\.netlify\.app$/.test(location.hostname)||window.HRTM_FORMS_LIVE===true;
+  document.querySelectorAll("form[data-netlify]").forEach(f=>{
+    f.querySelectorAll(".field textarea,.field input:not([type=hidden])").forEach(el=>{
+      const c=el.parentElement.querySelector(".count");
+      if(c){const upd=()=>c.textContent=el.value.length+" / "+el.maxLength;el.addEventListener("input",upd);upd()}
+      el.addEventListener("input",()=>el.closest(".field").classList.remove("bad"));
+    });
+    f.addEventListener("submit",async e=>{
+      e.preventDefault();const n=f.querySelector(".note"),b=f.querySelector('button[type="submit"]');n.hidden=false;
+      let bad=null;
+      f.querySelectorAll("[required]").forEach(el=>{
+        const ok=el.checkValidity();
+        el.closest(".field").classList.toggle("bad",!ok);
+        if(!ok&&!bad)bad=el;
+      });
+      if(bad){n.textContent="Please complete the highlighted fields.";bad.focus();return}
+      if(!LIVE){n.textContent="This is the preview copy, so nothing is sent from here. Once the site is live on Netlify, this form goes straight to the ministry.";return}
+      const label=b.textContent;b.disabled=true;b.classList.add("loading");b.textContent="";
+      try{const r=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(f)).toString()});
+        if(!r.ok)throw 0;f.reset();n.textContent=f.dataset.kind+" sent. Thank you, we will be in touch.";
+        f.querySelectorAll(".count").forEach(c=>c.textContent="");
+        b.classList.remove("loading");b.classList.add("done");b.textContent="✓ Sent"}
+      catch(_){b.classList.remove("loading");b.disabled=false;b.textContent=label;n.textContent="That did not send. Check your connection and try again, or write to the address on this page."}
+    });
+  });
+
+  // location / GPS
+  if(S.location&&S.location.lat&&S.location.lng){
+    const lat=+S.location.lat,lng=+S.location.lng;
+    const f=(v,p,s)=>Math.abs(v).toFixed(4)+"° "+(v>=0?p:s);
+    $("loc-coords").textContent=f(lat,"N","S")+" · "+f(lng,"E","W");
+    $("dirBtn").href="https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(lat+","+lng);
+    $("mapFrame").src="https://www.google.com/maps?q="+encodeURIComponent(lat+","+lng)+"&z=15&output=embed";
+  }
+  $("copyCoords").addEventListener("click",()=>{
+    const b=$("copyCoords"),txt=(S.location&&S.location.lat||"36.0860")+","+(S.location&&S.location.lng||"-95.9340");
+    const ok=()=>{b.classList.add("done");b.textContent="✓ Copied";setTimeout(()=>{b.classList.remove("done");b.textContent="Copy coordinates"},1800)};
+    try{navigator.clipboard.writeText(txt).then(ok,()=>{})}catch(_){}
+  });
+
+  // prayer quick-start chips
+  document.querySelectorAll(".topic").forEach(t=>t.addEventListener("click",()=>{
+    const ta=$("p-text"),v=ta.value;
+    ta.value=v&&!/\n$/.test(v)&&!v.endsWith(" ")?v+"\n"+t.dataset.fill:t.dataset.fill;
+    ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length);
+    ta.closest(".field").classList.remove("bad");
+  }));
+
+  // gallery lightbox
+  const gItems=[...document.querySelectorAll(".gallery .g-item")],lb=$("lightbox"),lbImg=$("lb-img"),lbCap=$("lb-cap"),lbCount=$("lb-count");
+  let lbi=0;
+  function openLb(i){
+    lbi=(i+gItems.length)%gItems.length;
+    const img=gItems[lbi].querySelector("img");
+    lbImg.src=img.src;lbImg.alt=img.alt;
+    lbCap.textContent=gItems[lbi].querySelector("figcaption").textContent;
+    lbCount.textContent=(lbi+1)+" / "+gItems.length;
+    lb.hidden=false;document.body.style.overflow="hidden";
+  }
+  function closeLb(){lb.hidden=true;document.body.style.overflow=""}
+  gItems.forEach((it,i)=>it.querySelector(".g-thumb").addEventListener("click",()=>openLb(i)));
+  lb.addEventListener("click",e=>{
+    if(e.target===lb||e.target.closest(".lb-close"))closeLb();
+    else if(e.target.closest(".lb-prev"))openLb(lbi-1);
+    else if(e.target.closest(".lb-next"))openLb(lbi+1);
+  });
+  document.addEventListener("keydown",e=>{
+    if(lb.hidden)return;
+    if(e.key==="Escape")closeLb();
+    else if(e.key==="ArrowLeft")openLb(lbi-1);
+    else if(e.key==="ArrowRight")openLb(lbi+1);
+  });
+  let swipeX=0;
+  lb.addEventListener("touchstart",e=>{swipeX=e.changedTouches[0].clientX},{passive:true});
+  lb.addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-swipeX;if(Math.abs(d)>45)openLb(lbi+(d<0?1:-1))},{passive:true});
+
+  // navigation toggle (small screens)
+  const tog=$("navToggle"),nav=$("mainnav");
+  const setNav=o=>{nav.classList.toggle("open",o);tog.setAttribute("aria-expanded",String(o));tog.setAttribute("aria-label",o?"Close menu":"Open menu")};
+  tog.addEventListener("click",()=>setNav(!nav.classList.contains("open")));
+  nav.addEventListener("click",e=>{if(e.target.closest("a"))setNav(false)});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")setNav(false)});
+
+  // scroll: progress bar, compact header, back-to-top
+  const prog=$("progress"),top=$("totop"),hdr=document.querySelector("header");
+  let tick=false;
+  function onScroll(){
+    const d=document.documentElement,max=d.scrollHeight-d.clientHeight;
+    prog.style.width=(max>0?(d.scrollTop/max)*100:0)+"%";
+    hdr.classList.toggle("is-stuck",d.scrollTop>10);
+    top.classList.toggle("show",d.scrollTop>600);
+  }
+  addEventListener("scroll",()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{onScroll();tick=false})},{passive:true});
+  onScroll();
+  top.addEventListener("click",()=>scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"}));
+
+  // reveal on scroll
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:0,rootMargin:"0px 0px -60px 0px"});
+    const staggered=new Set(["pillar","quote","post","beliefs li","faq details","gallery figure"]);
+    document.querySelectorAll(".sec-head,.pillar,.quote,.mosaic figure,.frame,.beliefs li,.post,.faq details,.sermon,.give-box,.split>form,.cal,.gallery figure,.mapbox,.ccard,.lead-rule,.lead-quote,.lead-tags").forEach(el=>{
+      el.classList.add("reveal");
+      if([...staggered].some(c=>el.matches(c))){
+        const i=[...el.parentElement.children].filter(x=>x.matches(c.split(" ").pop())).indexOf(el);
+        if(i>0)el.style.transitionDelay=Math.min(i,4)*90+"ms";
+      }
+      io.observe(el);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
